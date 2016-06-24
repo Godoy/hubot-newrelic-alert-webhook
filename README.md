@@ -1,4 +1,4 @@
-# hubot-hubot-newrelic-alert-webhook
+# hubot-newrelic-alert-webhook
 
 A hubot script that does the things
 
@@ -8,13 +8,13 @@ See [`src/hubot-newrelic-alert-webhook.coffee`](src/hubot-newrelic-alert-webhook
 
 In hubot project repo, run:
 
-`npm install hubot-hubot-newrelic-alert-webhook --save`
+`npm install hubot-newrelic-alert-webhook --save`
 
-Then add **hubot-hubot-newrelic-alert-webhook** to your `external-scripts.json`:
+Then add **hubot-newrelic-alert-webhook** to your `external-scripts.json`:
 
 ```json
 [
-  "hubot-hubot-newrelic-alert-webhook"
+  "hubot-newrelic-alert-webhook"
 ]
 ```
 
@@ -27,4 +27,4 @@ hubot>> hello!
 
 ## NPM Module
 
-https://www.npmjs.com/package/hubot-hubot-newrelic-alert-webhook
+https://www.npmjs.com/package/hubot-newrelic-alert-webhook
