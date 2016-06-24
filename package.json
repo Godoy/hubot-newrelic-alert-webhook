@@ -1,7 +1,7 @@
 {
   "name": "hubot-newrelic-alert-webhook",
   "description": "A hubot script that does the things",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Plan B",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts, hubot-newrelic, webhook, new relic",
