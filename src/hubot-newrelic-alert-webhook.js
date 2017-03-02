@@ -32,17 +32,26 @@ module.exports = function(robot) {
     console.log("Received New Relic POST: " + (inspect(data)));
 
     room = query.room || process.env["NR_ALERT_ROOM"];
-    console.log("data.alert");
-    console.log(data.alert);
-    try {
-      console.log("New relic report: " + (inspect(data)))
-      msg = "*Atenção - alerta em " + data.alert["application_name"] + "* \n" + data.alert["message"]
-      robot.messageRoom(room, msg);
-    } catch (_error) {
-      error = _error;
-      robot.messageRoom(room, "NR Alert error: " + error);
-      console.log("NR Alert error: " + error + ". Request: " + req.body);
+    if (data.alert) {
+      var alert = data.alert;
+      console.log("data.alert");
+      console.log(alert);
+
+      console.log("application_name");
+      console.log(alert["application_name"]);
+
+      try {
+        console.log("New relic report: " + (inspect(data)))
+        msg = "*Atenção - alerta em " + data.alert["application_name"] + "* \n" + data.alert["message"]
+        robot.messageRoom(room, msg);
+      } catch (_error) {
+        error = _error;
+        robot.messageRoom(room, "NR Alert error: " + error);
+        console.log("NR Alert error: " + error + ". Request: " + req.body);
+      }
     }
+
+
 
     return res.end("");
   });
