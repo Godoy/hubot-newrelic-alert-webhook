@@ -26,13 +26,14 @@ module.exports = function(robot) {
   return robot.router.post("/hubot/nr-alert-webhook", function(req, res) {
     var data, query, room;
     query = querystring.parse(url.parse(req.url).query);
-    data = JSON.parse(req.body);
+    data = req.body;
 
     robot.logger.debug("Received New Relic POST: " + (inspect(data)));
     console.log("Received New Relic POST: " + (inspect(data)));
 
     room = query.room || process.env["NR_ALERT_ROOM"];
-
+    console.log("data.alert");
+    console.log(data.alert);
     try {
       console.log("New relic report: " + (inspect(data)))
       msg = "*Atenção - alerta em " + data.alert.application_name + "* \n" + data.alert.message
