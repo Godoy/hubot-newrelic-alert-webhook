@@ -26,7 +26,7 @@ module.exports = function(robot) {
   return robot.router.post("/hubot/nr-alert-webhook", function(req, res) {
     var data, query, room;
     query = querystring.parse(url.parse(req.url).query);
-    data = req.body;
+    data = JSON.parse(req.body);
 
     robot.logger.debug("Received New Relic POST: " + (inspect(data)));
     console.log("Received New Relic POST: " + (inspect(data)));
