@@ -33,12 +33,18 @@ module.exports = function(robot) {
 
     room = query.room || process.env["NR_ALERT_ROOM"];
     if (data.alert) {
-      var alert = data.alert;
       console.log("data.alert");
+      console.log(data.alert);
+
+      var alert = JSON.parse(data.alert);
+      console.log("alert");
       console.log(alert);
 
-      console.log("application_name");
+      console.log("alert['application_name']");
       console.log(alert["application_name"]);
+
+      console.log("alert.application_name");
+      console.log(alert.application_name);
 
       try {
         console.log("New relic report: " + (inspect(data)))
