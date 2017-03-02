@@ -33,22 +33,11 @@ module.exports = function(robot) {
 
     room = query.room || process.env["NR_ALERT_ROOM"];
     if (data.alert) {
-      console.log("data.alert");
-      console.log(data.alert);
-
       var alert = JSON.parse(data.alert);
-      console.log("alert");
-      console.log(alert);
-
-      console.log("alert['application_name']");
-      console.log(alert["application_name"]);
-
-      console.log("alert.application_name");
-      console.log(alert.application_name);
 
       try {
         console.log("New relic report: " + (inspect(data)))
-        msg = "*Atenção - alerta em " + data.alert["application_name"] + "* \n" + data.alert["message"]
+        msg = "*Attention - alert in " + alert.application_name + "* \n" + alert.message
         robot.messageRoom(room, msg);
       } catch (_error) {
         error = _error;
@@ -56,8 +45,6 @@ module.exports = function(robot) {
         console.log("NR Alert error: " + error + ". Request: " + req.body);
       }
     }
-
-
 
     return res.end("");
   });
