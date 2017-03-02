@@ -35,7 +35,8 @@ module.exports = function(robot) {
 
     try {
       console.log("New relic report: " + (inspect(data)))
-      robot.messageRoom(room, (inspect(data)));
+      msg = "*Atenção - alerta em " + data.alert.application_name + "* \n" + data.alert.message
+      robot.messageRoom(room, msg);
     } catch (_error) {
       error = _error;
       robot.messageRoom(room, "NR Alert error: " + error);
